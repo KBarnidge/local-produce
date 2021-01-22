@@ -70,7 +70,7 @@
             <div class="row">
                 <div class="col-4 col-md-3 col-lg-2" th:each="product : ${vendorProducts}">
                     <div class="card mb-4">
-                        <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top mkp-img">
+                        <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top pd-ph-pr">
                         <div class="cards-body">
                             <h6 th:text="${product.name}">Product</h6>
                         </div>

@@ -47,6 +47,10 @@ public class HomeController {
 
     @RequestMapping("")
     public String index(Model model, HttpServletRequest request){
+        Iterable<Vendor> vendors;
+        vendors = vendorRepository.findAll();
+
+        model.addAttribute("vendors", vendors);
         model.addAttribute("title", "Local Produce");
 
         HttpSession session = request.getSession(false);

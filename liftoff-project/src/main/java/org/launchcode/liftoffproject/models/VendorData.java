@@ -9,7 +9,7 @@ public class VendorData {
 
         ArrayList<Vendor> results = new ArrayList<>();
 
-        for (Vendor vendor: allVendors) {
+        for (Vendor vendor : allVendors) {
 
             if (vendor.getLocation().toLowerCase().trim().contains(lower_val)) {
                 results.add(vendor);
@@ -24,4 +24,11 @@ public class VendorData {
 
         return results;
     }
+
+
+//    public static Iterable<Vendor> returnLast4Vendors(ArrayList<Vendor> allVendors) {
+//        Iterable<Vendor> results = new ArrayList<>();
+//
+////        return an arraylist with 4 vendors
+//    }
 }
