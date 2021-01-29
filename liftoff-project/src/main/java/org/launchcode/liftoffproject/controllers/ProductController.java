@@ -61,6 +61,7 @@ public class ProductController {
             model.addAttribute("user", user);
         }
 
+        model.addAttribute("title", "Add Product");
 
         return "products/add";
 
@@ -101,12 +102,11 @@ public class ProductController {
 
     @PostMapping("products/edit/{productId}")
     public String processEditProductForm(@PathVariable int productId, @ModelAttribute @Valid @RequestParam String name,
-                                          @RequestParam String photo,
-                                         @RequestParam String type, @RequestParam String description, @RequestParam boolean organic) {
 
-//        if (errors.hasErrors()) {
-//            return "redirect: vendor/profile";
-//        }
+                                         @RequestParam String photo, @RequestParam String type, @RequestParam String description,
+                                         @RequestParam boolean organic) {
+
+
         Optional<Product> optionalProduct = productRepository.findById(productId);
         Product product = (Product) optionalProduct.get();
 
@@ -116,30 +116,7 @@ public class ProductController {
         product.setDescription(description);
         product.setOrganic(organic);
 
-
         productRepository.save(product);
-        return "redirect: vendor/profile";
+        return "redirect:/vendor/profile";
     }
-    }
-
-
-
-//    @GetMapping("delete")
-//    public String displayDeleteProductForm (Model model){
-//
-//        model.addAttribute("title", "Delete Products");
-//        model.addAttribute("products", ProductData.findByValue());///?????????????
-//
-//        return "products/delete";
-//    }
-//
-//    @PostMapping("delete")
-//    public String processDeleteProductForm (@RequestParam int[] productIds) {
-//
-//        for (int id : productIds) {
-//            ProductData.remove(id);
-//        }
-//        return "redirect:";
-//    }
-    
-//}
+}
